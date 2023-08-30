@@ -27,23 +27,15 @@ return require('packer').startup(function(use)
 --   end
 -- }
 --
-
--- Rose pine
+-- Colorscheme
   use({ 'rose-pine/neovim', as = 'rose-pine' })
-
-
-
-
+  use "EdenEast/nightfox.nvim" -- Packer
 
 -- Treesitter
   use ('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
 
-
-
 --Undotree
  use 'mbbill/undotree'
-
-
 
 -- LSP Zero
 use {
@@ -62,15 +54,11 @@ use {
   }
 }
 
---Auto  Pairs
+--Auto Pairs
 use {
 	"windwp/nvim-autopairs",
     config = function() require("nvim-autopairs").setup {} end
 }
-
-
-
-
 -- Context Comment
 use ('JoosepAlviste/nvim-ts-context-commentstring')
 use {
@@ -79,17 +67,10 @@ use {
         require('Comment').setup()
     end
 }
-
-
-
 -- Fugitive
 use ('tpope/vim-fugitive')
 -- Git Glutter
 use ('airblade/vim-gitgutter')
-
-
-
-
 -- --Folder Tree
 use {
   'nvim-tree/nvim-tree.lua',
@@ -97,7 +78,6 @@ use {
     'nvim-tree/nvim-web-devicons', -- optional
   },
 }
-
 -- use {
 --   "nvim-neo-tree/neo-tree.nvim",
 --     branch = "v3.x",
@@ -107,41 +87,39 @@ use {
 --       "MunifTanjim/nui.nvim",
 --     }
 --   }
-
-
-
 --Buffer
 -- use ('akinsho/bufferline.nvim')
-
-
 --Barbar neovim
 -- These optional plugins should be loaded directly because of a bug in Packer lazy loading
 use 'nvim-tree/nvim-web-devicons' -- OPTIONAL: for file icons
 use 'lewis6991/gitsigns.nvim' -- OPTIONAL: for git status
 use 'romgrk/barbar.nvim'
-
-
 -- Toggle Terminal
 use ("akinsho/toggleterm.nvim")
-
-
-
-
 
 -- Bottom Line (lua line)
 use {
   'nvim-lualine/lualine.nvim',
   requires = { 'nvim-tree/nvim-web-devicons', opt = true }
 }
-
-
-
 -- Indent line
 use ("lukas-reineke/indent-blankline.nvim")
+--Search and replace
+
+use({
+  "roobert/search-replace.nvim",
+  config = function()
+    require("search-replace").setup({
+      -- optionally override defaults
+      default_replace_single_buffer_options = "gcI",
+      default_replace_multi_buffer_options = "egcI",
+    })
+  end,
+})
 
 
 
-
+use('RRethy/vim-illuminate')
 end)
 
 

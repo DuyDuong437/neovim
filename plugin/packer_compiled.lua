@@ -125,6 +125,11 @@ _G.packer_plugins = {
     path = "/Users/duy/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
+  ["nightfox.nvim"] = {
+    loaded = true,
+    path = "/Users/duy/.local/share/nvim/site/pack/packer/start/nightfox.nvim",
+    url = "https://github.com/EdenEast/nightfox.nvim"
+  },
   ["nvim-autopairs"] = {
     config = { "\27LJ\2\n@\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\19nvim-autopairs\frequire\0" },
     loaded = true,
@@ -176,6 +181,12 @@ _G.packer_plugins = {
     path = "/Users/duy/.local/share/nvim/site/pack/packer/start/rose-pine",
     url = "https://github.com/rose-pine/neovim"
   },
+  ["search-replace.nvim"] = {
+    config = { "\27LJ\2\n—\1\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\2)default_replace_multi_buffer_options\tegcI*default_replace_single_buffer_options\bgcI\nsetup\19search-replace\frequire\0" },
+    loaded = true,
+    path = "/Users/duy/.local/share/nvim/site/pack/packer/start/search-replace.nvim",
+    url = "https://github.com/roobert/search-replace.nvim"
+  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/Users/duy/.local/share/nvim/site/pack/packer/start/telescope.nvim",
@@ -200,18 +211,27 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/duy/.local/share/nvim/site/pack/packer/start/vim-gitgutter",
     url = "https://github.com/airblade/vim-gitgutter"
+  },
+  ["vim-illuminate"] = {
+    loaded = true,
+    path = "/Users/duy/.local/share/nvim/site/pack/packer/start/vim-illuminate",
+    url = "https://github.com/RRethy/vim-illuminate"
   }
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: nvim-autopairs
-time([[Config for nvim-autopairs]], true)
-try_loadstring("\27LJ\2\n@\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\19nvim-autopairs\frequire\0", "config", "nvim-autopairs")
-time([[Config for nvim-autopairs]], false)
 -- Config for: Comment.nvim
 time([[Config for Comment.nvim]], true)
 try_loadstring("\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\fComment\frequire\0", "config", "Comment.nvim")
 time([[Config for Comment.nvim]], false)
+-- Config for: nvim-autopairs
+time([[Config for nvim-autopairs]], true)
+try_loadstring("\27LJ\2\n@\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\19nvim-autopairs\frequire\0", "config", "nvim-autopairs")
+time([[Config for nvim-autopairs]], false)
+-- Config for: search-replace.nvim
+time([[Config for search-replace.nvim]], true)
+try_loadstring("\27LJ\2\n—\1\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\2)default_replace_multi_buffer_options\tegcI*default_replace_single_buffer_options\bgcI\nsetup\19search-replace\frequire\0", "config", "search-replace.nvim")
+time([[Config for search-replace.nvim]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

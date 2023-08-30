@@ -30,7 +30,7 @@ keymap("n", "<leader>ss", ":w<CR>", opts)
 keymap("n", "<leader>gc", ":G commit -m '", opts)
 keymap("n", "<leader>gs", ":G status", opts)
 keymap("n", "<leader>gl", ":G log", opts)
-    keymap("n", "<leader>gp", ":G push origin main", opts)
+keymap("n", "<leader>gp", ":G push origin main", opts)
 
 -- No highlight
 keymap("n", "<leader>nh", ":noh<CR>", opts)
@@ -96,9 +96,13 @@ keymap("v", "p", '"_dP', opts)
 -- Faster selection
 keymap("v", "<C-k>", "5k", opts)
 keymap("v", "<C-j>", "5j", opts)
-keymap("v", "<C-l>", "G", opts)
-keymap("v", "<C-h>", "gg", opts)
+keymap("v", "<C-l>", "$", opts)
+keymap("v", "<C-h>", "0", opts)
 
+-- Search with selection
+keymap("v", "<leader>fw", "y/<C-r>\"<cr>", opts)
+keymap("v", "<leader>fe", "y/\\<<C-r>\"\\><cr>", opts)
+keymap("n", "<leader>fe", "/\\<\\>", opts)
 
 
 
