@@ -14,18 +14,6 @@ return require('packer').startup(function(use)
 -- or                            , branch = '0.1.x',
   requires = { {'nvim-lua/plenary.nvim'} }
 }
-
--- Telescope extension
--- use {
---   "ahmedkhalf/project.nvim",
---   config = function()
---     require("project_nvim").setup {
---       -- your configuration comes here
---       -- or leave it empty to use the default settings
---       -- refer to the configuration section below
---     }
---   end
--- }
 --
 -- Colorscheme
   use({ 'rose-pine/neovim', as = 'rose-pine' })
@@ -55,10 +43,8 @@ use {
 }
 
 --Auto Pairs
-use {
-	"windwp/nvim-autopairs",
-    config = function() require("nvim-autopairs").setup {} end
-}
+use 'm4xshen/autoclose.nvim'
+
 -- Context Comment
 use ('JoosepAlviste/nvim-ts-context-commentstring')
 use {
@@ -78,22 +64,11 @@ use {
     'nvim-tree/nvim-web-devicons', -- optional
   },
 }
--- use {
---   "nvim-neo-tree/neo-tree.nvim",
---     branch = "v3.x",
---     requires = { 
---       "nvim-lua/plenary.nvim",
---       "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
---       "MunifTanjim/nui.nvim",
---     }
---   }
---Buffer
--- use ('akinsho/bufferline.nvim')
 --Barbar neovim
--- These optional plugins should be loaded directly because of a bug in Packer lazy loading
 use 'nvim-tree/nvim-web-devicons' -- OPTIONAL: for file icons
 use 'lewis6991/gitsigns.nvim' -- OPTIONAL: for git status
 use 'romgrk/barbar.nvim'
+
 -- Toggle Terminal
 use ("akinsho/toggleterm.nvim")
 
@@ -104,8 +79,8 @@ use {
 }
 -- Indent line
 use ("lukas-reineke/indent-blankline.nvim")
---Search and replace
 
+--Search and replace
 use({
   "roobert/search-replace.nvim",
   config = function()
@@ -117,9 +92,22 @@ use({
   end,
 })
 
-
-
+-- Match word highlight
 use('RRethy/vim-illuminate')
+
+-- Auto save
+use({
+	"Pocco81/auto-save.nvim",
+	config = function()
+		 require("auto-save").setup {
+			-- your config goes here
+			-- or just leave it empty :)
+		 }
+	end,
+})
+-- Code runner
+use 'CRAG666/code_runner.nvim'
+use 'ggandor/leap.nvim'
 end)
 
 

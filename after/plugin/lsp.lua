@@ -46,12 +46,12 @@ cmp.setup({
   },
   window = {
     documentation = {
-      max_height = 15,
-      max_width = 60,
+      max_height = 25,
+      max_width = 80,
     }
   },
   formatting = {
-    fields = {'abbr', 'menu', 'kind'},
+    fields = {'abbr', 'kind'},
     format = function(entry, item)
       local short_name = {
         nvim_lsp = 'LSP',

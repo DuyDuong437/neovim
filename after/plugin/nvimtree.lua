@@ -1,4 +1,3 @@
-
     require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
       auto_reload_on_write = true,
       disable_netrw = false,
@@ -49,9 +48,9 @@
         highlight_opened_files = "none",
         highlight_modified = "none",
         root_folder_label = ":~:s?$?/..?",
-        indent_width = 2,
+        indent_width = 3,
         indent_markers = {
-          enable = false,
+          enable = true,
           inline_arrows = true,
           icons = {
             corner = "└",
@@ -171,7 +170,7 @@
         change_dir = {
           enable = true,
           global = false,
-          restrict_above_cwd = false,
+          restrict_above_cwd = true,
         },
         expand_all = {
           max_folder_discovery = 300,
