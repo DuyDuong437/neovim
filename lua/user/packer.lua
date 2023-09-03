@@ -44,6 +44,9 @@ use {
 
 --Auto Pairs
 use 'm4xshen/autoclose.nvim'
+use 'windwp/nvim-ts-autotag'
+use 'HiPhish/rainbow-delimiters.nvim'
+
 
 -- Context Comment
 use ('JoosepAlviste/nvim-ts-context-commentstring')
