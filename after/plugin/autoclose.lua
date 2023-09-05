@@ -21,4 +21,3 @@ require("autoclose").setup({
       auto_indent = true,
     }
 })
-

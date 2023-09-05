@@ -6,7 +6,7 @@ require'barbar'.setup {
   --       The defaults are suitable for most people.
 
   -- Enable/disable animations
-  animation = true,
+  animation = false,
 
   -- Enable/disable auto-hiding the tab bar when there is a single buffer
   auto_hide = false,
@@ -37,12 +37,12 @@ require'barbar'.setup {
   highlight_inactive_file_icons = false,
 
   -- Enable highlighting visible buffers
-  highlight_visible = true,
+  highlight_visible = false,
 
   icons = {
     -- Configure the base icons on the bufferline.
     -- Valid options to display the buffer index and -number are `true`, 'superscript' and 'subscript'
-    buffer_index = false,
+    buffer_index = true,
     buffer_number = false,
     button = '',
     -- Enables / disables diagnostic symbols
@@ -76,7 +76,7 @@ require'barbar'.setup {
     pinned = {button = '', filename = true},
 
     -- Use a preconfigured buffer appearance— can be 'default', 'powerline', or 'slanted'
-    preset = 'slanted',
+    preset = 'powerline',
 
     -- Configure the icons on the bufferline based on the visibility of a buffer.
     -- Supports all the base icon options, plus `modified` and `pinned`.
@@ -92,13 +92,13 @@ require'barbar'.setup {
   insert_at_start = false,
 
   -- Sets the maximum padding width with which to surround each tab
-  maximum_padding = 4,
+  maximum_padding = 1,
 
   -- Sets the minimum padding width with which to surround each tab
-  minimum_padding = 3,
+  minimum_padding = 1,
 
   -- Sets the maximum buffer name length.
-  maximum_length = 40,
+  maximum_length = 20,
 
   -- Sets the minimum buffer name length.
     minimum_length = 10,
@@ -165,7 +165,7 @@ map('n', '<A-c>', '<Cmd>BufferClose<CR>', opts)
 --                 :BufferCloseBuffersLeft
 --                 :BufferCloseBuffersRight
 -- Magic buffer-picking mode
-map('n', '<C-p>', '<Cmd>BufferPick<CR>', opts)
+map('n', '<C-t>', '<Cmd>BufferPick<CR>', opts)
 -- Sort automatically by...
 map('n', '<Space>bb', '<Cmd>BufferOrderByBufferNumber<CR>', opts)
 map('n', '<Space>bd', '<Cmd>BufferOrderByDirectory<CR>', opts)
