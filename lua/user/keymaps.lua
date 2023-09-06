@@ -33,9 +33,8 @@ vim.api.nvim_set_keymap("n", "<leader>nh", ":noh<CR>", opts)
 -- Indent
 vim.api.nvim_set_keymap("n", "<Tab>", ">>", opts)
 vim.api.nvim_set_keymap("n", "<S-Tab>", "<<", opts)
-
-vim.api.nvim_set_keymap("n", "<S-l>", ":MoveHChar(1)<CR>", opts)
-vim.api.nvim_set_keymap("n", "<S-h>", ":MoveHChar(-1)<CR>", opts)
+vim.api.nvim_set_keymap("n", "<S-l>", ">>", opts)
+vim.api.nvim_set_keymap("n", "<S-h>", "<<", opts)
 
 -- Move text up and down
 -- vim.api.nvim_set_keymap("n", "<S-j>", "<Esc>:m .+1<CR>==", opts)
@@ -68,7 +67,7 @@ vim.api.nvim_set_keymap("n", "<ESC>", "<ESC>", opts)
 --Folder tree
 vim.api.nvim_set_keymap("n", "<M-e>", ":NvimTreeFocus<CR>", opts)
 
---Cursor focuse move
+--Cursor focuse move between window
 vim.api.nvim_set_keymap("n", "<M-j>", "<C-w>j", opts)
 vim.api.nvim_set_keymap("n", "<M-k>", "<C-w>k", opts)
 vim.api.nvim_set_keymap("n", "<M-h>", "<C-w>h", opts)
@@ -80,7 +79,10 @@ vim.api.nvim_set_keymap('n', '<leader>k', [[:set paste<CR>m`O<Esc>``:set nopaste
 
 
 -- Enter where cursor is without leaving normal mode
-vim.api.nvim_set_keymap("n", "<C-cr>", "i<cr><ESC>", opts)
+-- vim.api.nvim_set_keymap("n", "<C-CR>", "i<CR><ESC>", opts)
+-- vim.api.nvim_set_keymap("n", "<C-BS>", "i<BS><ESC>", opts)
+
+
 
 -- Search and replace
 vim.api.nvim_set_keymap("n", "<leader>fw", "viwy/<C-r>\"<cr>", { noremap = false, silent = false })
@@ -98,7 +100,7 @@ vim.api.nvim_set_keymap("i", "jk", "<ESC>", opts)
 
 -- Move without leaving insert mode
 vim.api.nvim_set_keymap('i', '<C-l>', '<right>', opts)
-vim.api.nvim_set_keymap('i', '<C-h>', '<left>', opts)
+vim.api.nvim_set_keymap('i', '<C-h>', '<Left>', opts)
 vim.api.nvim_set_keymap('i', '<C-j>', '<down>', opts)
 vim.api.nvim_set_keymap('i', '<C-k>', '<up>', opts)
 
@@ -109,7 +111,7 @@ vim.api.nvim_set_keymap('i', '<C-BS>', '<C-U>', opts)
 -- Move with ALT without leaving insert mode
 vim.api.nvim_set_keymap('i', '<M-l>', '<S-right>', opts)
 vim.api.nvim_set_keymap('i', '<M-h>', '<S-left>', opts)
------------------------------------------------------- Visual ------------------------------------------------------------------------------------
+------------------------------------------------------ Visual -----------------------------------------------------------------------------
 -- Move text up and down
 -- vim.api.nvim_set_keymap("v", "H", "<gv", opts)
 -- vim.api.nvim_set_keymap("v", "L", ">gv", opts)
@@ -130,18 +132,16 @@ vim.api.nvim_set_keymap("v", "<leader>fw", "y/<C-r>\"<cr>", { noremap = false, s
 vim.api.nvim_set_keymap("v", "<leader>fe", "y/\\<<C-r>\"\\><cr>", { noremap = false, silent = false })
 
 -- Indent
-vim.api.nvim_set_keymap("v", "<Tab>", ">>", opts)
-vim.api.nvim_set_keymap("v", "<S-Tab>", "<<", opts)
+vim.api.nvim_set_keymap("v", "<Tab>", ">gv", opts)
+vim.api.nvim_set_keymap("v", "<S-Tab>", "<gv", opts)
 
-vim.api.nvim_set_keymap("v", "<S-l>", ":MoveHBlock(1)<CR>", opts)
-vim.api.nvim_set_keymap("v", "<S-h>", ":MoveHBlock(-1)<CR>", opts)
+vim.api.nvim_set_keymap("v", "<S-l>", ">gv", opts)
+vim.api.nvim_set_keymap("v", "<S-h>", "<gv", opts)
 
 --Copy to clipboard
 vim.api.nvim_set_keymap("v", "y", "\"+y", opts)
 -- vim.api.nvim_set_keymap("v", "<leader>p", "\"+p", opts)
 
 -- Move text up and down
--- vim.api.nvim_set_keymap("n", "<S-j>", "<Esc>:m .+1<CR>==", opts)
--- vim.api.nvim_set_keymap("n", "<S-k>", "<Esc>:m .-2<CR>==", opts)
 vim.api.nvim_set_keymap("v", "<S-k>", ":MoveBlock(-1)<CR>", opts)
 vim.api.nvim_set_keymap("v", "<S-j>", ":MoveBlock(1)<CR>", opts)

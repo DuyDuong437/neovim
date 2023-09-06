@@ -153,7 +153,6 @@ use {
 }
 -- Auto indent when move block
   use ('fedepujol/move.nvim')
-
 -- Commandline Autocompletion
 use {
   'gelguy/wilder.nvim',
@@ -182,4 +181,7 @@ use {
 }
 -- Window management
 use 'sindrets/winshift.nvim'
+
+-- Folding code block
+use {'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'}
 end)
