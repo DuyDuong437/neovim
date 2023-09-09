@@ -17,7 +17,7 @@ vim.g.maplocalleader = " "
 
 -- Side bar + Project view
 vim.api.nvim_set_keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
-vim.api.nvim_set_keymap("n", "<leader>w", ":BufferClose<cr>", opts)
+vim.api.nvim_set_keymap("n", "<leader>w", ":bdelete!<cr>", opts)
 vim.api.nvim_set_keymap("n", "<leader>qv", ":quitall<cr>", opts)
 vim.api.nvim_set_keymap("n", "<leader>c", ":close<cr>", opts)
 

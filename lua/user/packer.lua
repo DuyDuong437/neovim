@@ -1,4 +1,4 @@
--- This file can be loaded by calling `lua require('plugins')` from your init.vim
+-- This file can be loaded by calling `lua require('plugins')` from your init.vimpac
 -- Only required if you have packer configured as `opt`pac
 vim.cmd [[packadd packer.nvim]]
 --------------------------------------------------------------------------------------------------------------- Packer
@@ -82,8 +82,11 @@ use {
 -- use 'nvim-tree/nvim-web-devicons' -- OPTIONAL: for file icons
 -- use 'lewis6991/gitsigns.nvim' -- OPTIONAL: for git status
 -- use 'romgrk/barbar.nvim'
---------------------------------------------------------------------------------------------------------------- Tab Management >> tabline
-use 'nanozuki/tabby.nvim'
+--------------------------------------------------------------------------------------------------------------- Tab Bar Management >> tabline
+-- These optional plugins should be loaded directly because of a bug in Packer lazy loading
+use 'nvim-tree/nvim-web-devicons' -- OPTIONAL: for file icons
+use 'lewis6991/gitsigns.nvim' -- OPTIONAL: for git status
+use 'romgrk/barbar.nvim'
 --------------------------------------------------------------------------------------------------------------- Toggle Terminal >> toggleterm
 use ("akinsho/toggleterm.nvim")
 
