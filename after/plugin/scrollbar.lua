@@ -19,7 +19,7 @@ require("scrollbar").setup({
             text = "•",
             priority = 0,
             gui = nil,
-            color = nil,
+            color = 'orange',
             cterm = nil,
             color_nr = nil, -- cterm
             highlight = "Normal",
