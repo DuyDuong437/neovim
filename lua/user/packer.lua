@@ -12,7 +12,11 @@ return require('packer').startup(function(use)
 -- Telescope
   use {
   'nvim-telescope/telescope.nvim', tag = '0.1.0',
-  requires = { {'nvim-lua/plenary.nvim'} }
+  requires = { {'nvim-lua/plenary.nvim'},
+    { "nvim-telescope/telescope-live-grep-args.nvim" }},
+    config = function()
+    require("telescope").load_extension("live_grep_args")
+  end
 }
 -- Colorscheme
   -- use({ 'rose-pine/neovim', as = 'rose-pine' })
@@ -113,8 +117,6 @@ use({
 	"Pocco81/auto-save.nvim",
 	config = function()
 		 require("auto-save").setup {
-			-- your config goes here
-			-- or just leave it empty :)
 		 }
 	end,
 })
@@ -183,5 +185,27 @@ use {
 use 'sindrets/winshift.nvim'
 
 -- Folding code block
-use {'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'}
+use {
+  "kevinhwang91/nvim-ufo",
+  requires = {
+    "kevinhwang91/promise-async",
+  {
+    "luukvbaal/statuscol.nvim",
+    config = function()
+      local builtin = require("statuscol.builtin")
+      require("statuscol").setup(
+        {
+          relculright = true,
+          segments = {
+            {text = {builtin.foldfunc}, click = "v:lua.ScFa"},
+            {text = {"%s"}, click = "v:lua.ScSa"},
+            {text = {builtin.lnumfunc, " "}, click = "v:lua.ScLa"}
+          }
+        }
+      )
+    end
+
+  }
+}
+}
 end)

@@ -1,4 +1,4 @@
-require('auto-save').setup(
+	require('auto-save').setup(
 {
     enabled = true, -- start auto-save when the plugin is loaded (i.e. when your package manager loads it)
     execution_message = {
