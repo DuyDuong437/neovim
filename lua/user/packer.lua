@@ -1,15 +1,13 @@
 -- This file can be loaded by calling `lua require('plugins')` from your init.vim
-
-
--- Only required if you have packer configured as `opt`
+-- Only required if you have packer configured as `opt`pac
 vim.cmd [[packadd packer.nvim]]
-
+--------------------------------------------------------------------------------------------------------------- Packer
 return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 --/////////////////////////////////////////////////////packer
 
--- Telescope
+--------------------------------------------------------------------------------------------------------------- Telescope
   use {
   'nvim-telescope/telescope.nvim', tag = '0.1.0',
   requires = { {'nvim-lua/plenary.nvim'},
@@ -18,17 +16,17 @@ return require('packer').startup(function(use)
     require("telescope").load_extension("live_grep_args")
   end
 }
--- Colorscheme
+--------------------------------------------------------------------------------------------------------------- Colorscheme
   -- use({ 'rose-pine/neovim', as = 'rose-pine' })
   use "EdenEast/nightfox.nvim" -- Packer
 
--- Treesitter
+--------------------------------------------------------------------------------------------------------------- Treesitter
   use ('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
 
---Undotree
+--------------------------------------------------------------------------------------------------------------- Undotree
  use 'mbbill/undotree'
 
--- LSP Zero
+--------------------------------------------------------------------------------------------------------------- LSP Management >> lsp-zero 
 use {
   'VonHeikemen/lsp-zero.nvim',
   branch = 'v2.x',
@@ -45,12 +43,13 @@ use {
   }
 }
 
---Auto Pairs
+--------------------------------------------------------------------------------------------------------------- Auto Pairs + Auto Close Tag
 use 'm4xshen/autoclose.nvim'
 use 'windwp/nvim-ts-autotag'
+--------------------------------------------------------------------------------------------------------------- Raibow Delimiters
 use 'HiPhish/rainbow-delimiters.nvim'
 
--- Manage surrounded tag
+--------------------------------------------------------------------------------------------------------------- Motion For Tag + Pairs >> nvim-surround
 use({
     "kylechui/nvim-surround",
     tag = "*", -- Use for stability; omit to use `main` branch for the latest features
@@ -61,7 +60,7 @@ use({
     end
 })
 
--- Context Comment
+--------------------------------------------------------------------------------------------------------------- Context Comment >> nvim-ts-context-commentstring
 use ('JoosepAlviste/nvim-ts-context-commentstring')
 use {
     'numToStr/Comment.nvim',
@@ -69,12 +68,10 @@ use {
         require('Comment').setup()
     end
 }
--- Fugitive
+--------------------------------------------------------------------------------------------------------------- Git Intergration >> vim-fugitive
 use ('tpope/vim-fugitive')
--- Git Glutter
-use ('airblade/vim-gitgutter')
 
---Folder Tree
+--------------------------------------------------------------------------------------------------------------- Folder Tree >> nvim-tree
 use {
   'nvim-tree/nvim-tree.lua',
   requires = {
@@ -82,22 +79,23 @@ use {
   },
 }
 --Barbar neovim
-use 'nvim-tree/nvim-web-devicons' -- OPTIONAL: for file icons
-use 'lewis6991/gitsigns.nvim' -- OPTIONAL: for git status
-use 'romgrk/barbar.nvim'
-
--- Toggle Terminal
+-- use 'nvim-tree/nvim-web-devicons' -- OPTIONAL: for file icons
+-- use 'lewis6991/gitsigns.nvim' -- OPTIONAL: for git status
+-- use 'romgrk/barbar.nvim'
+--------------------------------------------------------------------------------------------------------------- Tab Management >> tabline
+use 'nanozuki/tabby.nvim'
+--------------------------------------------------------------------------------------------------------------- Toggle Terminal >> toggleterm
 use ("akinsho/toggleterm.nvim")
 
--- Bottom Line (lua line)
+--------------------------------------------------------------------------------------------------------------- Status Line >> lualine
 use {
   'nvim-lualine/lualine.nvim',
   requires = { 'nvim-tree/nvim-web-devicons', opt = true }
 }
--- Indent line
+--------------------------------------------------------------------------------------------------------------- Indent Line >> indent-blankline
 use ("lukas-reineke/indent-blankline.nvim")
 
---Search and replace
+--------------------------------------------------------------------------------------------------------------- Search & Replace >> search-replace
 use({
   "roobert/search-replace.nvim",
   config = function()
@@ -109,10 +107,10 @@ use({
   end,
 })
 
--- Match word highlight
+--------------------------------------------------------------------------------------------------------------- Match Word Highlight >> vim-illuminate
 use('RRethy/vim-illuminate')
 
--- Auto save
+--------------------------------------------------------------------------------------------------------------- Auto Save >> auto-save
 use({
 	"Pocco81/auto-save.nvim",
 	config = function()
@@ -120,17 +118,17 @@ use({
 		 }
 	end,
 })
--- Code runner
+ --------------------------------------------------------------------------------------------------------------- Code Runner >> code_runner
 use 'CRAG666/code_runner.nvim'
 
 
--- Better motion
+--------------------------------------------------------------------------------------------------------------- Advanced Motion >> leap
 use 'ggandor/leap.nvim'
 
--- Copilot
+--------------------------------------------------------------------------------------------------------------- Copilot
 use { "zbirenbaum/copilot.lua" }
 
--- Scroll bar
+--------------------------------------------------------------------------------------------------------------- Scroll Bar >> nvim-scrollbar (gitsigns + nvim-hlslens)
 use("petertriho/nvim-scrollbar")
 use {
   "lewis6991/gitsigns.nvim",
@@ -143,26 +141,28 @@ use {
   "kevinhwang91/nvim-hlslens",
   config = function()
     -- require('hlslens').setup() is not required
-      require("scrollbar.handlers.search").setup({
-        override_lens = function() end,
-      })
+    require("scrollbar.handlers.search").setup({
+        -- hlslens config overrides
+    })
   end,
 }
--- Guess indent
+
+
+--------------------------------------------------------------------------------------------------------------- Auto Indent >> guess-indent
 use {
   'nmac427/guess-indent.nvim',
   config = function() require('guess-indent').setup {} end,
 }
--- Auto indent when move block
+--------------------------------------------------------------------------------------------------------------- Auto Indent When Move Block >> move
   use ('fedepujol/move.nvim')
--- Commandline Autocompletion
+--------------------------------------------------------------------------------------------------------------- Command Autocompletion >> wilder
 use {
   'gelguy/wilder.nvim',
   config = function()
   end,
 }
 
--- Which Vim for Key Bindings 
+--------------------------------------------------------------------------------------------------------------- Keybind Suggestion >> which-key
 use {
   "folke/which-key.nvim",
   config = function()
@@ -171,7 +171,7 @@ use {
     require("which-key").setup {}
   end
 }
--- Session Manage
+--------------------------------------------------------------------------------------------------------------- Session Manage >> auto-session
 use {
   'rmagatti/auto-session',
   config = function()
@@ -181,10 +181,10 @@ use {
     }
   end
 }
--- Window management
+--------------------------------------------------------------------------------------------------------------- Window Management >> winshift
 use 'sindrets/winshift.nvim'
 
--- Folding code block
+--------------------------------------------------------------------------------------------------------------- Fold Block >> ufo
 use {
   "kevinhwang91/nvim-ufo",
   requires = {
@@ -208,4 +208,18 @@ use {
   }
 }
 }
+---------------------------------------------------------------------------------------------------------------  Breadcrumb >> barbecue 
+use({
+  "utilyre/barbecue.nvim",
+  tag = "*",
+  requires = {
+    "SmiteshP/nvim-navic",
+    "nvim-tree/nvim-web-devicons", -- optional dependency
+  },
+  after = "nvim-web-devicons", -- keep this if you're using NvChad
+  config = function()
+    require("barbecue").setup()
+  end,
+})
+
 end)
