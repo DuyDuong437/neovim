@@ -62,7 +62,6 @@ vim.api.nvim_set_keymap("n", "<C-l>", "$", opts)
 
 --------------------------------------------------------------------------------------------------------------------------------- Esc
 vim.api.nvim_set_keymap("n", "<ESC>", "<ESC>", opts)
-
 --------------------------------------------------------------------------------------------------------------------------------- Folder tree
 vim.api.nvim_set_keymap("n", "<M-e>", ":NvimTreeFocus<CR>", opts)
 
@@ -77,13 +76,17 @@ vim.api.nvim_set_keymap('n', '<leader>j', [[:set paste<CR>m`o<Esc>``:set nopaste
 vim.api.nvim_set_keymap('n', '<leader>k', [[:set paste<CR>m`O<Esc>``:set nopaste<CR>]], { noremap = true, silent = true })
 
 
--- Enter where cursor is without leaving normal mode
-vim.api.nvim_set_keymap("n", "<C-CR>", "i<CR><ESC>", opts)
-vim.api.nvim_set_keymap("n", "<C-BS>", "i<BS><ESC>", opts)
+------------------------------------------------------------------------------------------------------------------------ Enter where cursor is without leaving normal mode
+vim.api.nvim_set_keymap("n", "<leader><CR>", "i<CR><ESC>", opts)
+vim.api.nvim_set_keymap("n", "<leader>hh", "i<BS><ESC>l", opts)
+vim.api.nvim_set_keymap("n", "<leader>ll", "i<space><ESC>", opts)
 
 --------------------------------------------------------------------------------------------------------------------------------- Search and replace
 vim.api.nvim_set_keymap("n", "<leader>fw", "viwy/<C-r>\"<cr>", no)
-vim.api.nvim_set_keymap("n", "<leader>fe", "/\\<\\><>", no)
+vim.api.nvim_set_keymap("n", "<leader>fe", "viwy/<C-r>\"\\C<cr>", no)
+vim.api.nvim_set_keymap("n", "<leader>rw", "viwy:%s/<C-R>\"//gc<left><left><left>", no)
+vim.api.nvim_set_keymap("n", "<leader>re", "viwy:%s/<C-R>\"//gci<left><left><left><left>", no)
+vim.api.nvim_set_keymap("n", "<leader>rr", ":%s///gci<left><left><left><left>", no)
 
 --------------------------------------------------------------------------------------------------------------------------------- Run code
 vim.api.nvim_set_keymap("n", "<leader>rc", ":RunCode<cr>", no)
@@ -121,8 +124,8 @@ vim.api.nvim_set_keymap('i', '<A-BS>', '<C-w>', opts)
 vim.api.nvim_set_keymap('i', '<C-BS>', '<C-U>', opts)
 
 --------------------------------------------------------------------------------------------------------------------------------- Move with ALT without leaving Insert
-vim.api.nvim_set_keymap('i', '<M-l>', '<S-right>', opts)
-vim.api.nvim_set_keymap('i', '<M-h>', '<S-left>', opts)
+vim.api.nvim_set_keymap('i', '<A-l>', '<S-right>', opts)
+vim.api.nvim_set_keymap('i', '<A-h>', '<S-left>', opts)
 
 
 ------------------------------------------------------------------------------------------------------------------------- Visual Mode ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

@@ -9,3 +9,4 @@ require("auto-session").setup({
 	post_restore_cmds = { change_nvim_tree_dir, "NvimTreeOpen" },
 	pre_save_cmds = { "NvimTreeClose" },
 })
+vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
