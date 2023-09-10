@@ -1,3 +1,4 @@
+local lga_actions = require("telescope-live-grep-args.actions")
 require("telescope").setup({
   defaults = {
     layout_config = {
@@ -5,7 +6,7 @@ require("telescope").setup({
         preview_cutoff = 0,
       },
     },
-  },
+  }
 })
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>sf', builtin.find_files, {})

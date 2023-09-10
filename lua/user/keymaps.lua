@@ -71,6 +71,8 @@ vim.api.nvim_set_keymap("n", "<M-k>", "<C-w>k", opts)
 vim.api.nvim_set_keymap("n", "<M-h>", "<C-w>h", opts)
 vim.api.nvim_set_keymap("n", "<M-l>", "<C-w>l", opts)
 
+---------------------------------------------------------------------------------------------------------------------------------Cursor focuse move between window
+vim.api.nvim_set_keymap("n", "<M-t>", "<C-w>j", opts)
 --------------------------------------------------------------------------------------------------------------------------------- Add space
 vim.api.nvim_set_keymap('n', '<leader>j', [[:set paste<CR>m`o<Esc>``:set nopaste<CR>]], { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>k', [[:set paste<CR>m`O<Esc>``:set nopaste<CR>]], { noremap = true, silent = true })
@@ -87,6 +89,7 @@ vim.api.nvim_set_keymap("n", "<leader>fe", "viwy/<C-r>\"\\C<cr>", no)
 vim.api.nvim_set_keymap("n", "<leader>rw", "viwy:%s/<C-R>\"//gc<left><left><left>", no)
 vim.api.nvim_set_keymap("n", "<leader>re", "viwy:%s/<C-R>\"//gci<left><left><left><left>", no)
 vim.api.nvim_set_keymap("n", "<leader>rr", ":%s///gci<left><left><left><left>", no)
+vim.api.nvim_set_keymap("n", "<leader>ra", ":cdo $s///g<left><left><left>", no)
 
 --------------------------------------------------------------------------------------------------------------------------------- Run code
 vim.api.nvim_set_keymap("n", "<leader>rc", ":RunCode<cr>", no)
@@ -98,12 +101,13 @@ vim.api.nvim_set_keymap("n", "<C-w>m", ":WinShift<cr>", no)
 vim.api.nvim_set_keymap("n", "<C-a>", "ggVG", no)
 
 
---------------------------------------------------------------------------------------------------------------------------------- BUffer + Tab move
+--------------------------------------------------------------------------------------------------------------------------------- Buffer + Tab move
 vim.api.nvim_set_keymap("n", "<M-.>" , ":bnext<cr>", opts)
 vim.api.nvim_set_keymap("n", "<M-,>" , ":bprevious<cr>", opts)
 
-vim.api.nvim_set_keymap("n", "<M-t>" , ":TablineTabNew<cr>", opts)
-vim.api.nvim_set_keymap("n", "<M-r>" , ":TablineTabRename<cr>", opts)
+vim.api.nvim_set_keymap("n", "<M-t>" , ":tabnew<cr>", opts)
+vim.api.nvim_set_keymap("n", "<M-'>" , ":tabnext<cr>", opts)
+vim.api.nvim_set_keymap("n", "<M-;>" , ":tabprevious<cr>", opts)
 
 
 
@@ -115,9 +119,14 @@ vim.api.nvim_set_keymap("i", "jk", "<ESC>", opts)
 
 --------------------------------------------------------------------------------------------------------------------------------- Move without leaving insert mode
 vim.api.nvim_set_keymap('i', '<C-l>', '<right>', opts)
-vim.api.nvim_set_keymap('i', '<C-h>', '<Left>', opts)
-vim.api.nvim_set_keymap('i', '<C-j>', '<down>', opts)
+vim.api.nvim_set_keymap('i', '<C-h>', '<left>', opts)
 vim.api.nvim_set_keymap('i', '<C-k>', '<up>', opts)
+vim.api.nvim_set_keymap('i', '<C-j>', '<down>', opts)
+
+vim.api.nvim_set_keymap('i', '<C-S-l>', '<right>', opts)
+vim.api.nvim_set_keymap('i', '<C-S-h>', '<left>', opts)
+vim.api.nvim_set_keymap('i', '<C-S-k>', '<up>', opts)
+vim.api.nvim_set_keymap('i', '<C-S-j>', '<down>', opts)
 
 --------------------------------------------------------------------------------------------------------------------------------- Delete with ALT and Command
 vim.api.nvim_set_keymap('i', '<A-BS>', '<C-w>', opts)
@@ -127,13 +136,14 @@ vim.api.nvim_set_keymap('i', '<C-BS>', '<C-U>', opts)
 vim.api.nvim_set_keymap('i', '<A-l>', '<S-right>', opts)
 vim.api.nvim_set_keymap('i', '<A-h>', '<S-left>', opts)
 
-
+vim.api.nvim_set_keymap('i', '<A-S-l>', '<S-right>', opts)
+vim.api.nvim_set_keymap('i', '<A-S-h>', '<S-left>', opts)
 ------------------------------------------------------------------------------------------------------------------------- Visual Mode ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 --------------------------------------------------------------------------------------------------------------------------------- Paste behavior
-vim.api.nvim_set_keymap("v", "p", '"_dP', opts)
 
 --------------------------------------------------------------------------------------------------------------------------------- Faster selection
+
 vim.api.nvim_set_keymap("v", "<C-k>", "5k", opts)
 vim.api.nvim_set_keymap("v", "<C-j>", "5j", opts)
 vim.api.nvim_set_keymap("v", "<C-l>", "$", opts)
@@ -152,7 +162,8 @@ vim.api.nvim_set_keymap("v", "<S-h>", "<gv", opts)
 
 --------------------------------------------------------------------------------------------------------------------------------- Copy to clipboard
 vim.api.nvim_set_keymap("v", "y", "\"+y", opts)
---------------------------------------------------------------------------------------------------------------------------------- vim.api.nvim_set_keymap("v", "<leader>p", "\"+p", opts)
+---------------------------------------------------------------------------------------------------------------------------------
+--vim.api.nvim_set_keymap("v", "<leader>p", "\"+p", opts)
 
 --------------------------------------------------------------------------------------------------------------------------------- Move text up and down
 vim.api.nvim_set_keymap("v", "<S-k>", ":MoveBlock(-1)<CR>", opts)

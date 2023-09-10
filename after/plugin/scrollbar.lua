@@ -16,7 +16,7 @@ require("scrollbar").setup({
     },
     marks = {
         Cursor = {
-            text = "•",
+            text = "", --  •
             priority = 0,
             gui = nil,
             color = 'orange',

@@ -1,5 +1,5 @@
+require("scope").setup({})
 vim.g.barbar_auto_setup = false -- disable auto-setup
-
 require'barbar'.setup {
   -- Enable/disable animations
   animation = true,
@@ -108,9 +108,9 @@ require'barbar'.setup {
     -- Or, specify the text used for the offset:
     undotree = {text = 'Undotree'},
     -- Or, specify the event which the sidebar executes when leaving:
-    ['neo-tree'] = {event = 'BufWipeout'},
+    -- ['neo-tree'] = {event = 'BufWipeout'},
     -- Or, specify both
-    Outline = {event = 'BufWinLeave', text = 'symbols-outline'},
+    -- Outline = {event = 'BufWinLeave', text = 'symbols-outline'},
   },
 
   -- New buffer letters are assigned in this order. This order is
@@ -163,4 +163,3 @@ map('n', '<M-a>', '<Cmd>BufferPick<CR>', opts)
 -- map('n', '<Space>bd', '<Cmd>BufferOrderByDirectory<CR>', opts)
 -- map('n', '<Space>bl', '<Cmd>BufferOrderByLanguage<CR>', opts)
 -- map('n', '<Space>bw', '<Cmd>BufferOrderByWindowNumber<CR>', opts)
-

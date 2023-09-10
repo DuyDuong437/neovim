@@ -82,11 +82,13 @@ use {
 -- use 'nvim-tree/nvim-web-devicons' -- OPTIONAL: for file icons
 -- use 'lewis6991/gitsigns.nvim' -- OPTIONAL: for git status
 -- use 'romgrk/barbar.nvim'
---------------------------------------------------------------------------------------------------------------- Tab Bar Management >> tabline
+--------------------------------------------------------------------------------------------------------------- Tab Bar Management >> barbar + scope
 -- These optional plugins should be loaded directly because of a bug in Packer lazy loading
 use 'nvim-tree/nvim-web-devicons' -- OPTIONAL: for file icons
-use 'lewis6991/gitsigns.nvim' -- OPTIONAL: for git status
+-- use 'lewis6991/gitsigns.nvim' -- OPTIONAL: for git status
 use 'romgrk/barbar.nvim'
+use("tiagovla/scope.nvim")
+
 --------------------------------------------------------------------------------------------------------------- Toggle Terminal >> toggleterm
 use ("akinsho/toggleterm.nvim")
 
@@ -98,17 +100,13 @@ use {
 --------------------------------------------------------------------------------------------------------------- Indent Line >> indent-blankline
 use ("lukas-reineke/indent-blankline.nvim")
 
+--------------------------------------------------------------------------------------------------------------- Yank behavior
+use "tenxsoydev/karen-yank.nvim"
+
 --------------------------------------------------------------------------------------------------------------- Search & Replace >> search-replace
--- use({
---   "roobert/search-replace.nvim",
---   config = function()
---     require("search-replace").setup({
---       -- optionally override defaults
---       default_replace_single_buffer_options = "gcI",
---       default_replace_multi_buffer_options = "egcI",
---     })
---   end,
--- })
+
+use ('nvim-lua/plenary.nvim')
+use ('nvim-pack/nvim-spectre')
 
 --------------------------------------------------------------------------------------------------------------- Match Word Highlight >> vim-illuminate
 use('RRethy/vim-illuminate')
