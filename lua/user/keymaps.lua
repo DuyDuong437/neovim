@@ -15,7 +15,9 @@ vim.g.maplocalleader = " "
 
 ------------------------------------------------------------------------------------------------------------------------- Normal Mode ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
--- Side bar + Project view
+------------------------------------------------------------------------------------------------------------------------------ -- Side bar + Project view
+vim.api.nvim_set_keymap("n", "<leader>fm", ":Neoformat<cr>", opts)
+------------------------------------------------------------------------------------------------------------------------------ -- Side bar + Project view
 vim.api.nvim_set_keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
 vim.api.nvim_set_keymap("n", "<leader>w", ":bdelete!<cr>", opts)
 vim.api.nvim_set_keymap("n", "<leader>qv", ":quitall<cr>", opts)
@@ -24,9 +26,9 @@ vim.api.nvim_set_keymap("n", "<leader>c", ":close<cr>", opts)
 --------------------------------------------------------------------------------------------------------------------------------- Git
 vim.api.nvim_set_keymap("n", "<leader>gg", ":G<CR>", opts)
 vim.api.nvim_set_keymap("n", "<leader>gc", ":G commit -m '", no)
-vim.api.nvim_set_keymap("n", "<leader>gs", ":G status",no)
+vim.api.nvim_set_keymap("n", "<leader>gs", ":G status", no)
 vim.api.nvim_set_keymap("n", "<leader>gl", ":G log", no)
-vim.api.nvim_set_keymap("n", "<leader>gu", ":G push origin main",  no)
+vim.api.nvim_set_keymap("n", "<leader>gu", ":G push origin main", no)
 vim.api.nvim_set_keymap("n", "<leader>gp", ":G pull origin main", no)
 
 --------------------------------------------------------------------------------------------------------------------------------- No highlight
@@ -59,7 +61,6 @@ vim.api.nvim_set_keymap("n", "<C-k>", "10k", opts)
 vim.api.nvim_set_keymap("n", "<C-h>", "0", opts)
 vim.api.nvim_set_keymap("n", "<C-l>", "$", opts)
 
-
 --------------------------------------------------------------------------------------------------------------------------------- Esc
 vim.api.nvim_set_keymap("n", "<ESC>", "<ESC>", opts)
 --------------------------------------------------------------------------------------------------------------------------------- Folder tree
@@ -74,9 +75,18 @@ vim.api.nvim_set_keymap("n", "<M-l>", "<C-w>l", opts)
 ---------------------------------------------------------------------------------------------------------------------------------Cursor focuse move between window
 vim.api.nvim_set_keymap("n", "<M-t>", "<C-w>j", opts)
 --------------------------------------------------------------------------------------------------------------------------------- Add space
-vim.api.nvim_set_keymap('n', '<leader>j', [[:set paste<CR>m`o<Esc>``:set nopaste<CR>]], { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>k', [[:set paste<CR>m`O<Esc>``:set nopaste<CR>]], { noremap = true, silent = true })
-
+vim.api.nvim_set_keymap(
+	"n",
+	"<leader>j",
+	[[:set paste<CR>m`o<Esc>``:set nopaste<CR>]],
+	{ noremap = true, silent = true }
+)
+vim.api.nvim_set_keymap(
+	"n",
+	"<leader>k",
+	[[:set paste<CR>m`O<Esc>``:set nopaste<CR>]],
+	{ noremap = true, silent = true }
+)
 
 ------------------------------------------------------------------------------------------------------------------------ Enter where cursor is without leaving normal mode
 vim.api.nvim_set_keymap("n", "<leader><CR>", "i<CR><ESC>", opts)
@@ -84,10 +94,10 @@ vim.api.nvim_set_keymap("n", "<leader>hh", "i<BS><ESC>l", opts)
 vim.api.nvim_set_keymap("n", "<leader>ll", "i<space><ESC>", opts)
 
 --------------------------------------------------------------------------------------------------------------------------------- Search and replace
-vim.api.nvim_set_keymap("n", "<leader>fw", "viwy/<C-r>\"<cr>", no)
-vim.api.nvim_set_keymap("n", "<leader>fe", "viwy/<C-r>\"\\C<cr>", no)
-vim.api.nvim_set_keymap("n", "<leader>rw", "viwy:%s/<C-R>\"//gc<left><left><left>", no)
-vim.api.nvim_set_keymap("n", "<leader>re", "viwy:%s/<C-R>\"//gci<left><left><left><left>", no)
+vim.api.nvim_set_keymap("n", "<leader>fw", 'viwy/<C-r>"<cr>', no)
+vim.api.nvim_set_keymap("n", "<leader>fe", 'viwy/<C-r>"\\C<cr>', no)
+vim.api.nvim_set_keymap("n", "<leader>rw", 'viwy:%s/<C-R>"//gc<left><left><left>', no)
+vim.api.nvim_set_keymap("n", "<leader>re", 'viwy:%s/<C-R>"//gci<left><left><left><left>', no)
 vim.api.nvim_set_keymap("n", "<leader>rr", ":%s///gci<left><left><left><left>", no)
 vim.api.nvim_set_keymap("n", "<leader>ra", ":cdo $s///g<left><left><left>", no)
 
@@ -100,44 +110,40 @@ vim.api.nvim_set_keymap("n", "<C-w>m", ":WinShift<cr>", no)
 --------------------------------------------------------------------------------------------------------------------------------- Select All
 vim.api.nvim_set_keymap("n", "<C-a>", "ggVG", no)
 
-
 --------------------------------------------------------------------------------------------------------------------------------- Buffer + Tab move
-vim.api.nvim_set_keymap("n", "<M-.>" , ":bnext<cr>", opts)
-vim.api.nvim_set_keymap("n", "<M-,>" , ":bprevious<cr>", opts)
+vim.api.nvim_set_keymap("n", "<M-.>", ":bnext<cr>", opts)
+vim.api.nvim_set_keymap("n", "<M-,>", ":bprevious<cr>", opts)
 
-vim.api.nvim_set_keymap("n", "<M-t>" , ":tabnew<cr>", opts)
-vim.api.nvim_set_keymap("n", "<M-'>" , ":tabnext<cr>", opts)
-vim.api.nvim_set_keymap("n", "<M-;>" , ":tabprevious<cr>", opts)
-
-
+vim.api.nvim_set_keymap("n", "<M-t>", ":tabnew<cr>", opts)
+vim.api.nvim_set_keymap("n", "<M-'>", ":tabnext<cr>", opts)
+vim.api.nvim_set_keymap("n", "<M-;>", ":tabprevious<cr>", opts)
 
 ------------------------------------------------------------------------------------------------------------------------- Insert Mode ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
 
 --------------------------------------------------------------------------------------------------------------------------------- Press jk fast to enter
 vim.api.nvim_set_keymap("i", "jk", "<ESC>", opts)
 
 --------------------------------------------------------------------------------------------------------------------------------- Move without leaving insert mode
-vim.api.nvim_set_keymap('i', '<C-l>', '<right>', opts)
-vim.api.nvim_set_keymap('i', '<C-h>', '<left>', opts)
-vim.api.nvim_set_keymap('i', '<C-k>', '<up>', opts)
-vim.api.nvim_set_keymap('i', '<C-j>', '<down>', opts)
+vim.api.nvim_set_keymap("i", "<C-l>", "<right>", opts)
+vim.api.nvim_set_keymap("i", "<C-h>", "<left>", opts)
+vim.api.nvim_set_keymap("i", "<C-k>", "<up>", opts)
+vim.api.nvim_set_keymap("i", "<C-j>", "<down>", opts)
 
-vim.api.nvim_set_keymap('i', '<C-S-l>', '<right>', opts)
-vim.api.nvim_set_keymap('i', '<C-S-h>', '<left>', opts)
-vim.api.nvim_set_keymap('i', '<C-S-k>', '<up>', opts)
-vim.api.nvim_set_keymap('i', '<C-S-j>', '<down>', opts)
+vim.api.nvim_set_keymap("i", "<C-S-l>", "<right>", opts)
+vim.api.nvim_set_keymap("i", "<C-S-h>", "<left>", opts)
+vim.api.nvim_set_keymap("i", "<C-S-k>", "<up>", opts)
+vim.api.nvim_set_keymap("i", "<C-S-j>", "<down>", opts)
 
 --------------------------------------------------------------------------------------------------------------------------------- Delete with ALT and Command
-vim.api.nvim_set_keymap('i', '<A-BS>', '<C-w>', opts)
-vim.api.nvim_set_keymap('i', '<C-BS>', '<C-U>', opts)
+vim.api.nvim_set_keymap("i", "<A-BS>", "<C-w>", opts)
+vim.api.nvim_set_keymap("i", "<C-BS>", "<C-U>", opts)
 
 --------------------------------------------------------------------------------------------------------------------------------- Move with ALT without leaving Insert
-vim.api.nvim_set_keymap('i', '<A-l>', '<S-right>', opts)
-vim.api.nvim_set_keymap('i', '<A-h>', '<S-left>', opts)
+vim.api.nvim_set_keymap("i", "<A-l>", "<S-right>", opts)
+vim.api.nvim_set_keymap("i", "<A-h>", "<S-left>", opts)
 
-vim.api.nvim_set_keymap('i', '<A-S-l>', '<S-right>', opts)
-vim.api.nvim_set_keymap('i', '<A-S-h>', '<S-left>', opts)
+vim.api.nvim_set_keymap("i", "<A-S-l>", "<S-right>", opts)
+vim.api.nvim_set_keymap("i", "<A-S-h>", "<S-left>", opts)
 ------------------------------------------------------------------------------------------------------------------------- Visual Mode ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 --------------------------------------------------------------------------------------------------------------------------------- Paste behavior
@@ -150,8 +156,10 @@ vim.api.nvim_set_keymap("v", "<C-l>", "$", opts)
 vim.api.nvim_set_keymap("v", "<C-h>", "0", opts)
 
 --------------------------------------------------------------------------------------------------------------------------------- Search with selection
-vim.api.nvim_set_keymap("v", "<leader>fw", "y/<C-r>\"<cr>", no)
-vim.api.nvim_set_keymap("v", "<leader>fe", "y/\\<<C-r>\"\\><cr>", no)
+vim.api.nvim_set_keymap("v", "<leader>fw", 'y/<C-r>"<cr>', no)
+vim.api.nvim_set_keymap("v", "<leader>fe", 'y/\\<<C-r>"\\><cr>', no)
+vim.api.nvim_set_keymap("v", "<leader>rw", 'y:%s/<C-R>"//gc<left><left><left>', no)
+vim.api.nvim_set_keymap("v", "<leader>fe", 'y:%s/<C-R>"//gci<left><left><left><left>', no)
 
 --------------------------------------------------------------------------------------------------------------------------------- Indent
 vim.api.nvim_set_keymap("v", "<Tab>", ">gv", opts)
@@ -161,7 +169,7 @@ vim.api.nvim_set_keymap("v", "<S-l>", ">gv", opts)
 vim.api.nvim_set_keymap("v", "<S-h>", "<gv", opts)
 
 --------------------------------------------------------------------------------------------------------------------------------- Copy to clipboard
-vim.api.nvim_set_keymap("v", "y", "\"+y", opts)
+vim.api.nvim_set_keymap("v", "y", '"+y', opts)
 ---------------------------------------------------------------------------------------------------------------------------------
 --vim.api.nvim_set_keymap("v", "<leader>p", "\"+p", opts)
 

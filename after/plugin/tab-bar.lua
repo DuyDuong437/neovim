@@ -34,7 +34,7 @@ require'barbar'.setup {
   icons = {
     -- Configure the base icons on the bufferline.
     -- Valid options to display the buffer index and -number are `true`, 'superscript' and 'subscript'
-    buffer_index = false,
+    buffer_index = true,
     buffer_number = false,
     button = '',
     -- Enables / disables diagnostic symbols
@@ -42,7 +42,7 @@ require'barbar'.setup {
       [vim.diagnostic.severity.ERROR] = {enabled = true, icon = 'ﬀ'},
       [vim.diagnostic.severity.WARN] = {enabled = false},
       [vim.diagnostic.severity.INFO] = {enabled = false},
-      [vim.diagnostic.severity.HINT] = {enabled = true},
+      [vim.diagnostic.severity.HINT] = {enabled = false},
     },
     gitsigns = {
       added = {enabled = true, icon = '+'},
@@ -68,7 +68,7 @@ require'barbar'.setup {
     pinned = {button = '', filename = true},
 
     -- Use a preconfigured buffer appearance— can be 'default', 'powerline', or 'slanted'
-    preset = 'default',
+    preset = 'slanted',
 
     -- Configure the icons on the bufferline based on the visibility of a buffer.
     -- Supports all the base icon options, plus `modified` and `pinned`.
@@ -84,13 +84,13 @@ require'barbar'.setup {
   insert_at_start = false,
 
   -- Sets the maximum padding width with which to surround each tab
-  maximum_padding = 1,
+  maximum_padding = 2,
 
   -- Sets the minimum padding width with which to surround each tab
-  minimum_padding = 1,
+  minimum_padding = 2,
 
   -- Sets the maximum buffer name length.
-  maximum_length = 20,
+  maximum_length = 30,
 
   -- Sets the minimum buffer name length.
   minimum_length = 0,
@@ -163,3 +163,22 @@ map('n', '<M-a>', '<Cmd>BufferPick<CR>', opts)
 -- map('n', '<Space>bd', '<Cmd>BufferOrderByDirectory<CR>', opts)
 -- map('n', '<Space>bl', '<Cmd>BufferOrderByLanguage<CR>', opts)
 -- map('n', '<Space>bw', '<Cmd>BufferOrderByWindowNumber<CR>', opts)
+
+-- Initialize a variable to track the state of the buffer switching
+local bufferSwitch = false
+
+-- Define a Lua function to toggle between :BufferPrevious and :BufferNext
+function ToggleBufferSwitch()
+  if bufferSwitch then
+    vim.cmd(":BufferNext")
+  else
+    vim.cmd(":BufferPrevious")
+  end
+
+  -- Toggle the state for the next invocation
+  bufferSwitch = not bufferSwitch
+end
+
+-- Map the function to the desired key combination in normal mode (e.g., <C-Z>)
+vim.api.nvim_set_keymap('n', '<C-z>', '<cmd>lua ToggleBufferSwitch()<CR>', { noremap = true, silent = true })
+

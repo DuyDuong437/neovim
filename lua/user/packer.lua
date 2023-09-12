@@ -40,14 +40,10 @@ use {
     {'hrsh7th/nvim-cmp'},     -- Required
     {'hrsh7th/cmp-nvim-lsp'}, -- Required
     {'L3MON4D3/LuaSnip'},     -- Required
-    {'/hrsh7th/cmp-buffer'},
-    {'hrsh7th/cmp-path'},
-    {'saadparwaiz1/cmp_luasnip'},
-    {'hrsh7th/cmp-nvim-lsp'},
-    {'hrsh7th/cmp-nvim-lua'}
   }
 }
-
+-------------------------------------------------------------------------------------------------------------- Formatter
+use 'sbdchd/neoformat'
 --------------------------------------------------------------------------------------------------------------- Auto Pairs + Auto Close Tag
 use 'm4xshen/autoclose.nvim'
 use 'windwp/nvim-ts-autotag'
