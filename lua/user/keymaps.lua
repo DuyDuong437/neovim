@@ -27,9 +27,9 @@ vim.api.nvim_set_keymap("n", "<leader>c", ":close<cr>", opts)
 vim.api.nvim_set_keymap("n", "<leader>gg", ":G<CR>", opts)
 vim.api.nvim_set_keymap("n", "<leader>gc", ":G commit -m '", no)
 vim.api.nvim_set_keymap("n", "<leader>gs", ":G status", no)
-vim.api.nvim_set_keymap("n", "<leader>gl", ":G log", no)
-vim.api.nvim_set_keymap("n", "<leader>gu", ":G push origin main", no)
-vim.api.nvim_set_keymap("n", "<leader>gp", ":G pull origin main", no)
+vim.api.nvim_set_keymap("n", "<leader>go", ":G log", no)
+vim.api.nvim_set_keymap("n", "<leader>gp", ":G push origin main", no)
+vim.api.nvim_set_keymap("n", "<leader>gl", ":G pull origin main", no)
 
 --------------------------------------------------------------------------------------------------------------------------------- No highlight
 vim.api.nvim_set_keymap("n", "<leader>nh", ":noh<CR>", opts)

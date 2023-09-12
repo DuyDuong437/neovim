@@ -67,7 +67,7 @@ require('gitsigns').setup {
     -- map('v', '<leader>hr', function() gs.reset_hunk {vim.fn.line('.'), vim.fn.line('v')} end)
     map('n', '<leader>gs', gs.stage_buffer)
     -- map('n', '<leader>hb', gs.undo_stage_hunk)
-    map('n', '<leader>gu', gs.reset_buffer)
+    -- map('n', '<leader>gu', gs.reset_buffer)
     -- map('n', '<leader>hp', gs.preview_hunk)
     -- map('n', '<leader>hb', function() gs.blame_line{full=true} end)
     map('n', '<leader>tb', gs.toggle_current_line_blame)
