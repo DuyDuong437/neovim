@@ -40,6 +40,11 @@ use {
     {'hrsh7th/nvim-cmp'},     -- Required
     {'hrsh7th/cmp-nvim-lsp'}, -- Required
     {'L3MON4D3/LuaSnip'},     -- Required
+    {'/hrsh7th/cmp-buffer'},
+    {'hrsh7th/cmp-path'},
+    {'saadparwaiz1/cmp_luasnip'},
+    {'hrsh7th/cmp-nvim-lsp'},
+    {'hrsh7th/cmp-nvim-lua'}
   }
 }
 
@@ -101,7 +106,7 @@ use {
 use ("lukas-reineke/indent-blankline.nvim")
 
 --------------------------------------------------------------------------------------------------------------- Yank behavior
-use "tenxsoydev/karen-yank.nvim"
+-- use "tenxsoydev/karen-yank.nvim"
 
 --------------------------------------------------------------------------------------------------------------- Search & Replace >> search-replace
 
@@ -119,6 +124,8 @@ use({
 		 }
 	end,
 })
+use { 'codota/tabnine-nvim', run = "./dl_binaries.sh" }
+
  --------------------------------------------------------------------------------------------------------------- Code Runner >> code_runner
 use 'CRAG666/code_runner.nvim'
 
